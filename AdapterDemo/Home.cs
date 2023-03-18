@@ -33,7 +33,7 @@ namespace AdapterDemo
         private void btnPlay_Click(object sender, EventArgs e)
         {         
 
-                if (fileName != null)
+            if (fileName != null)
                 audioPlayer.play(audioType, fileName);
             else
                 MessageBox.Show("Open an audio file !!!");

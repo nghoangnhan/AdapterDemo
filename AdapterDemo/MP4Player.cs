@@ -12,7 +12,7 @@ namespace AdapterDemo
         public WindowsMediaPlayer player = new WindowsMediaPlayer();
         public void PlayMp4(String fileName)
         {
-            player.URL = @"D:\Rhymth\BecauseOfYou-NeYo.mp3";
+            player.URL = fileName;
             player.controls.play();
 
         }
