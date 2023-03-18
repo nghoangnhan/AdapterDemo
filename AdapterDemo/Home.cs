@@ -43,23 +43,23 @@ namespace AdapterDemo
         private void btnOpen_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = @"D:\Rhymth";
+            //openFileDialog.InitialDirectory = @"D:\Rhymth";
             openFileDialog.Filter = "Audio files (*.mp3)|*.mp3|MP4 files (*.mp4)|*.mp4|WAV files (*.wav)|*.wav";
             openFileDialog.Title = "Select a song";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 fileName = openFileDialog.FileName;
-                lbSong.Text += fileName;
+                lbSong.Text = "Song: " + fileName;
 
                 if (fileName.Contains(".mp3"))
                     audioType = "mp3";
-                else if (fileName.Contains(".wav"))
-                    audioType = "wav";
-                else
+                else if (fileName.Contains(".mp4"))
                     audioType = "mp4";
+                else
+                    audioType = "Other type";
 
-                lbType.Text += audioType;
+                lbType.Text = "Type: " + audioType;
             }
         }
 

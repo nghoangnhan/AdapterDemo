@@ -11,7 +11,7 @@ namespace AdapterDemo
     public class AudioPlayer : MediaPlayer
     {
         MediaAdapter mediaAdaper;
-        WindowsMediaPlayer player = new WindowsMediaPlayer();
+        public WindowsMediaPlayer player = new WindowsMediaPlayer();
         public void play(String audioType, String fileName)
         {
             if (audioType == "mp3")
