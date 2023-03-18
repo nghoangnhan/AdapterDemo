@@ -8,6 +8,6 @@ namespace AdapterDemo
 {
     public interface MediaPlayer
     {
-        void play(String audioType, String fileName);
+        void play(String audioType, byte[] audioData);
     }
 }

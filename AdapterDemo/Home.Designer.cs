@@ -35,6 +35,7 @@ namespace AdapterDemo
             this.lbSong = new System.Windows.Forms.Label();
             this.btnPause = new System.Windows.Forms.Button();
             this.lbType = new System.Windows.Forms.Label();
+            this.btnStop = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backgroundWorker1
@@ -43,7 +44,7 @@ namespace AdapterDemo
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(344, 367);
+            this.btnPlay.Location = new System.Drawing.Point(275, 367);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(126, 71);
             this.btnPlay.TabIndex = 0;
@@ -53,7 +54,7 @@ namespace AdapterDemo
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(197, 367);
+            this.btnOpen.Location = new System.Drawing.Point(143, 367);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(126, 71);
             this.btnOpen.TabIndex = 1;
@@ -72,7 +73,7 @@ namespace AdapterDemo
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(485, 367);
+            this.btnPause.Location = new System.Drawing.Point(407, 367);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(126, 71);
             this.btnPause.TabIndex = 3;
@@ -89,11 +90,22 @@ namespace AdapterDemo
             this.lbType.TabIndex = 4;
             this.lbType.Text = "Type:";
             // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(539, 367);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(126, 71);
+            this.btnStop.TabIndex = 5;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.lbType);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lbSong);
@@ -115,6 +127,7 @@ namespace AdapterDemo
         private System.Windows.Forms.Label lbSong;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Label lbType;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

@@ -8,6 +8,7 @@ namespace AdapterDemo
 {
     public interface AdvancedMediaPlayer
     {
-        void PlayMp4(String fileName);
+        void PlayMp4(byte[] audioData);
+        void PlayWav(byte[] audioData);
     }
 }

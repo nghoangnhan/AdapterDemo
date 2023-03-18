@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,27 @@ namespace AdapterDemo
 
         public MediaAdapter(String audioType)
         {
-            advancedMediaPlayer = new MP4Player();
+            if (audioType == "wav")
+            {
+                advancedMediaPlayer = new WavPlayer();
+            }
+            else
+            {
+                advancedMediaPlayer = new MP4Player();
+            }
         }
 
-        public void play(String audioType, String fileName)
+        public void play(String audioType, byte[] audioData)
         {
-            advancedMediaPlayer.PlayMp4(fileName);
+            if(audioType == "wav")
+            {
+                advancedMediaPlayer.PlayWav(audioData);
+            }
+            else
+            {
+                advancedMediaPlayer.PlayMp4(audioData);
+            }
+            
         }
 
     }

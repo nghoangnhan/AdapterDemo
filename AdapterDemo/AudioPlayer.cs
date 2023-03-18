@@ -1,28 +1,44 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WMPLib;
+using NAudio.Wave;
 
 namespace AdapterDemo
 {
     public class AudioPlayer : MediaPlayer
     {
-        MediaAdapter mediaAdaper;
-        public WindowsMediaPlayer player = new WindowsMediaPlayer();
-        public void play(String audioType, String fileName)
+        public WaveOutEvent waveOut = new WaveOutEvent();
+        MediaAdapter mediaAdapter;
+
+
+        public void play(String audioType, byte[] audioData)
         {
+            MemoryStream stream = new MemoryStream(audioData);
             if (audioType == "mp3")
             {
-                player.URL = fileName;
-                player.controls.play();
+                // Create a new WaveStream from the stream
+                WaveStream waveStream = new Mp3FileReader(stream);
+
+                // Create a new WaveOutEvent object and set the audio stream
+                waveOut.Init(waveStream);
+                waveOut.Play();
             } 
             else if(audioType == "mp4")
             {
-                mediaAdaper = new MediaAdapter(audioType);
-                mediaAdaper.play(audioType, fileName);
+
+
+            }
+            else if (audioType == "wav")
+            {
+                mediaAdapter = new MediaAdapter(audioType);
+                mediaAdapter.play(audioType, audioData);
             }
             else
             {
