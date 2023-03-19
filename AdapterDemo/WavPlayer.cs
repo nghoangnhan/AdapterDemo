@@ -12,15 +12,15 @@ namespace AdapterDemo
 {
     internal class WavPlayer : AdvancedMediaPlayer
     {
-        public WaveOutEvent waveOut = new WaveOutEvent();
-        public void PlayMp4(byte[] audioData)
+        public void PlayMp4(AudioFile audioFile)
         {
         
         }
 
-        public void PlayWav(byte[] audioData) 
+        public void PlayWav(AudioFile audioFile) 
         {
-            MemoryStream stream = new MemoryStream(audioData);
+            WaveOutEvent waveOut = audioFile.waveOut;
+            MemoryStream stream = new MemoryStream(audioFile.audioData);
 
             // Create a new WaveStream from the stream
             WaveStream waveStream = new WaveFileReader(stream);

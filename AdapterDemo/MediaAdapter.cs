@@ -11,9 +11,9 @@ namespace AdapterDemo
     {
         AdvancedMediaPlayer advancedMediaPlayer;
 
-        public MediaAdapter(String audioType)
+        public MediaAdapter(AudioFile audioFile)
         {
-            if (audioType == "wav")
+            if (audioFile.audioType == "wav")
             {
                 advancedMediaPlayer = new WavPlayer();
             }
@@ -23,15 +23,15 @@ namespace AdapterDemo
             }
         }
 
-        public void play(String audioType, byte[] audioData)
+        public void play(AudioFile audioFile)
         {
-            if(audioType == "wav")
+            if(audioFile.audioType == "wav")
             {
-                advancedMediaPlayer.PlayWav(audioData);
+                advancedMediaPlayer.PlayWav(audioFile);
             }
             else
             {
-                advancedMediaPlayer.PlayMp4(audioData);
+                advancedMediaPlayer.PlayMp4(audioFile);
             }
             
         }

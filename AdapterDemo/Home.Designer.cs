@@ -44,9 +44,9 @@ namespace AdapterDemo
             // 
             // btnPlay
             // 
-            this.btnPlay.Location = new System.Drawing.Point(275, 367);
+            this.btnPlay.Location = new System.Drawing.Point(213, 367);
             this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(126, 71);
+            this.btnPlay.Size = new System.Drawing.Size(164, 71);
             this.btnPlay.TabIndex = 0;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = true;
@@ -54,9 +54,9 @@ namespace AdapterDemo
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(143, 367);
+            this.btnOpen.Location = new System.Drawing.Point(43, 367);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(126, 71);
+            this.btnOpen.Size = new System.Drawing.Size(164, 71);
             this.btnOpen.TabIndex = 1;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
@@ -73,11 +73,11 @@ namespace AdapterDemo
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(407, 367);
+            this.btnPause.Location = new System.Drawing.Point(383, 367);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(126, 71);
+            this.btnPause.Size = new System.Drawing.Size(164, 71);
             this.btnPause.TabIndex = 3;
-            this.btnPause.Text = "Pause";
+            this.btnPause.Text = "Pause / Resume";
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
@@ -92,9 +92,9 @@ namespace AdapterDemo
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(539, 367);
+            this.btnStop.Location = new System.Drawing.Point(553, 367);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(126, 71);
+            this.btnStop.Size = new System.Drawing.Size(164, 71);
             this.btnStop.TabIndex = 5;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;

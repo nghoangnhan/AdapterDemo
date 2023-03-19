@@ -16,10 +16,11 @@ namespace AdapterDemo
 {
     public partial class Home : Form
     {
-        public String fileName, audioType;
+        public AudioFile audioFile = new AudioFile();
         AudioPlayer audioPlayer;
-        byte[] audioData;
         OpenFileDialog openFileDialog = new OpenFileDialog();
+
+        bool isPause = true;
 
 
         public Home()
@@ -43,8 +44,8 @@ namespace AdapterDemo
         private void btnPlay_Click(object sender, EventArgs e)
         {
 
-            if (fileName != null)
-                audioPlayer.play(audioType, audioData);
+            if (audioFile.fileName != null)
+                audioPlayer.play(audioFile);
             else
                 MessageBox.Show("Open an audio file !!!");
 
@@ -55,35 +56,48 @@ namespace AdapterDemo
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileName = openFileDialog.FileName;
 
-                if (fileName.Contains(".mp3"))
-                    audioType = "mp3";
-                else if (fileName.Contains(".mp4"))
-                    audioType = "mp4";
-                else if (fileName.Contains(".wav"))
-                    audioType = "wav";
+                audioFile.fileName = openFileDialog.FileName;
+
+                if (audioFile.fileName.Contains(".mp3"))
+                    audioFile.audioType = "mp3";
+
+                else if (audioFile.fileName.Contains(".mp4"))
+                    audioFile.audioType = "mp4";
+
+                else if (audioFile.fileName.Contains(".wav"))
+                    audioFile.audioType = "wav";
+
                 else
-                    audioType = "Other type";
+                    audioFile.audioType = "Other type";
 
 
-                lbType.Text = "Type: " + audioType;
-                lbSong.Text = "Song: " + fileName;
+                lbType.Text = "Type: " + audioFile.audioType;
+                lbSong.Text = "Song: " + audioFile.fileName;
 
-                audioData = File.ReadAllBytes(fileName);
+                audioFile.audioData = File.ReadAllBytes(audioFile.fileName);
             }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            WaveOutEvent waveOut = audioPlayer.waveOut;
+            WaveOutEvent waveOut = audioFile.waveOut;
             waveOut.Stop();
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
-            WaveOutEvent waveOut = audioPlayer.waveOut;
-            waveOut.Pause();
+            WaveOutEvent waveOut = audioFile.waveOut;
+            if (isPause)
+            {
+                waveOut.Pause();
+                isPause = false;
+            }
+            else
+            {
+                waveOut.Play();
+                isPause = true;
+            }
         }
     }
 }

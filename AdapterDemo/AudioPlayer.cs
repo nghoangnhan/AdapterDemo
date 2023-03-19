@@ -14,31 +14,31 @@ namespace AdapterDemo
 {
     public class AudioPlayer : MediaPlayer
     {
-        public WaveOutEvent waveOut = new WaveOutEvent();
         MediaAdapter mediaAdapter;
 
 
-        public void play(String audioType, byte[] audioData)
+        public void play(AudioFile audioFile)
         {
-            MemoryStream stream = new MemoryStream(audioData);
-            if (audioType == "mp3")
+            MemoryStream stream = new MemoryStream(audioFile.audioData);
+            if (audioFile.audioType == "mp3")
             {
                 // Create a new WaveStream from the stream
                 WaveStream waveStream = new Mp3FileReader(stream);
 
                 // Create a new WaveOutEvent object and set the audio stream
-                waveOut.Init(waveStream);
-                waveOut.Play();
+                audioFile.waveOut.Init(waveStream);
+                audioFile.waveOut.Play();
             } 
-            else if(audioType == "mp4")
+            else if(audioFile.audioType == "mp4")
             {
-
+                mediaAdapter = new MediaAdapter(audioFile);
+                mediaAdapter.play(audioFile);
 
             }
-            else if (audioType == "wav")
+            else if (audioFile.audioType == "wav")
             {
-                mediaAdapter = new MediaAdapter(audioType);
-                mediaAdapter.play(audioType, audioData);
+                mediaAdapter = new MediaAdapter(audioFile);
+                mediaAdapter.play(audioFile);
             }
             else
             {

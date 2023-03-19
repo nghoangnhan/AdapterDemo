@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdvancedMediaPlayer.cs" />
+    <Compile Include="AudioFile.cs" />
     <Compile Include="AudioPlayer.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
