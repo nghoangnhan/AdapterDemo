@@ -29,20 +29,14 @@ namespace AdapterDemo
                 audioFile.waveOut.Init(waveStream);
                 audioFile.waveOut.Play();
             } 
-            else if(audioFile.audioType == "mp4")
+            else if ((audioFile.audioType == "Other type"))
             {
-                mediaAdapter = new MediaAdapter(audioFile);
-                mediaAdapter.play(audioFile);
-
-            }
-            else if (audioFile.audioType == "wav")
-            {
-                mediaAdapter = new MediaAdapter(audioFile);
-                mediaAdapter.play(audioFile);
+                MessageBox.Show("Invalid");
             }
             else
             {
-                MessageBox.Show("Invalid");
+                mediaAdapter = new MediaAdapter(audioFile);
+                mediaAdapter.play(audioFile);
             }
 
         }

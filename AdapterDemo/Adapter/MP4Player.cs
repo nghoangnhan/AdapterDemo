@@ -16,28 +16,6 @@ namespace AdapterDemo
     public class MP4Player : AdvancedMediaPlayer
     {
 
-        private byte[] ConvertMp4ToWav(String fileName, int bufferSize)
-        {
-            MediaFoundationReader reader = new MediaFoundationReader(fileName);
-            WaveStream waveStream = WaveFormatConversionStream.CreatePcmStream(reader);
-
-            MemoryStream memoryStream = new MemoryStream();
-
-            WaveFileWriter writer = new WaveFileWriter(memoryStream, waveStream.WaveFormat);
-
-            byte[] buffer = new byte[bufferSize];
-            int bytesRead = 0;
-
-            while((bytesRead = waveStream.Read(buffer,0, buffer.Length)) > 0)
-            {
-                writer.Write(buffer, 0, bytesRead);
-            }
-            byte[] byteArray = memoryStream.ToArray();
-
-            return byteArray;
-        }
-
-
         public void PlayMp4(AudioFile audioFile)
         {
 

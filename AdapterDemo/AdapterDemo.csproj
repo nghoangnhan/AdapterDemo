@@ -88,7 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedMediaPlayer.cs" />
+    <Compile Include="Interface\AdvancedMediaPlayer.cs" />
     <Compile Include="AudioFile.cs" />
     <Compile Include="AudioPlayer.cs" />
     <Compile Include="Home.cs">
@@ -97,12 +97,12 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaAdapter.cs" />
-    <Compile Include="MediaPlayer.cs" />
-    <Compile Include="MP4Player.cs" />
+    <Compile Include="Adapter\MediaAdapter.cs" />
+    <Compile Include="Interface\MediaPlayer.cs" />
+    <Compile Include="Adapter\MP4Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WavPlayer.cs" />
+    <Compile Include="Adapter\WavPlayer.cs" />
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
